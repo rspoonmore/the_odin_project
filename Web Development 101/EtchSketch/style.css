@@ -1,15 +1,31 @@
+.container {
+    align-items: center;
+    text-align: center;
+}
+
+
 .cellContainer {
     display: grid;
-    /* grid-template-columns: auto auto auto; */
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    width: var(--board-size);
+    height: var(--board-size);
 }
 
 .cell {
-    background-color: #FFF;
+    color: #FFF;
     border: solid #000 1px;
+    width: var(--cell-size);
+    height: var(--cell-size);
 }
 
 .hovered {
     background-color: #000;
+}
+
+#resetButton {
+    margin: 10px;
 }
 
 
