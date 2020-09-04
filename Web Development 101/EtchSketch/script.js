@@ -1,6 +1,3 @@
-let numCells = 100;
-boardSize = 1000;
-
 function addCellToBoard(rowDiv) {
     let newCell = document.createElement('div');
             newCell.classList.add('cell');
@@ -9,7 +6,9 @@ function addCellToBoard(rowDiv) {
             rowDiv.appendChild(newCell);
 }
 
-function buildBoard(numCells, boardSize) {
+function buildBoard(boardSize) {
+    const cellNumberInput = document.getElementById('cell-number-input');
+    let numCells = cellNumberInput.value;
     let cellSize = Math.floor(boardSize / numCells);
     let columnWidths = '';
     for(i=0; i < numCells; i++){
@@ -31,15 +30,21 @@ function buildBoard(numCells, boardSize) {
 
 
 function resetView() {
-    let cells = document.querySelectorAll('.cell');
-    cells.forEach((cell) => {
-        cell.classList.remove('hovered');
-    });
+    let cellContainer = document.querySelector('.cellContainer');
+    let mainContainer = document.querySelector('.container');
+    mainContainer.removeChild(cellContainer);
+
+    let newCellContainer = document.createElement('div');
+    newCellContainer.classList.add('cellContainer');
+    mainContainer.appendChild(newCellContainer);
+
+    buildBoard(boardSize);
 }
 
 
 function game() {
-    buildBoard(numCells, boardSize)
+    boardSize = 1000;
+    buildBoard(boardSize)
     resetButton = document.getElementById('resetButton');
     resetButton.addEventListener('click', resetView);
 }

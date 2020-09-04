@@ -9,7 +9,8 @@
         <div class='container'>
             <h2>Etch Sketch</h2>
             <form>
-                <input type="number">
+                <label for="cell-number-input">Number of Cells Per Row</label>
+                <input id="cell-number-input" type="number" min="1" max="100" value="25">
             </form>
             <button id='resetButton'>Reset</button>
             <div class="cellContainer"></div>
